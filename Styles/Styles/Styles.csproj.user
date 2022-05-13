@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Controls\DoublePathButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\DoublePathButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\DoubleTextButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ComboBoxStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ControlStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DatePickerStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ScrollBarStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\SliderStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\TextStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

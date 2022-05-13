@@ -1,0 +1,81 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="TitleLabelStyle" TargetType="Label">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="R"/>
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+
+    <Style x:Key="ErrorTextLabelStyle" TargetType="Label">
+        <Setter Property="Foreground" Value="#F61010"/>
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <Style x:Key="SubscriptionLabelStyle" TargetType="Label">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <!-- ToolTip -->
+    
+    <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border Background="#1A293D"
+                                CornerRadius="4">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="8,6,8,6"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <!-- TextBox -->
+    
+    <Style x:Key="TextBoxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="Border" 
+                                Background="#070C13"
+                                BorderBrush="#63768F"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"
+                                          Margin="8,0,0,0"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#1A293D"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#1A293D"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#2F80ED"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#1E2F46"/>
+                            <Setter TargetName="Border" Property="Background" Value="#111D2D"/>
+                            <Setter Property="Foreground" Value="#838991"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#F61010"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
