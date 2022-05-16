@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Styles/ComboBoxStyles.xaml"/>
                 <ResourceDictionary Source="Styles/SliderStyles.xaml"/>
                 <ResourceDictionary Source="Styles/DatePickerStyles.xaml"/>
+                <ResourceDictionary Source="Styles/TreeViewStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>

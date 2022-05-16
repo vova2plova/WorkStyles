@@ -42,7 +42,6 @@
                     </ComboBox>
                 </AdornerDecorator>
             </StackPanel>
-
             <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
                 <AdornerDecorator>
                     <ComboBox Style="{StaticResource ComboBoxStyle}" Width="284" Height="40" Margin="0,12,4,12" Grid.Column="1">
@@ -67,12 +66,55 @@
                       Fill="#E2E2E2"/>
                 </ToggleButton>
             </StackPanel>
+
             <uc:DoublePathButton Width="116" Height="36" Grid.Column="1"
                                   LeftButtonPathData="M16.2 0.699707H1.8C0.81 0.699707 0.00899999 1.50971 0.00899999 2.49971L0 11.4997C0 12.4897 0.81 13.2997 1.8 13.2997H16.2C17.19 13.2997 18 12.4897 18 11.4997V2.49971C18 1.50971 17.19 0.699707 16.2 0.699707ZM8.1 3.39971H9.9V5.19971H8.1V3.39971ZM8.1 6.09971H9.9V7.89971H8.1V6.09971ZM5.4 3.39971H7.2V5.19971H5.4V3.39971ZM5.4 6.09971H7.2V7.89971H5.4V6.09971ZM4.5 7.89971H2.7V6.09971H4.5V7.89971ZM4.5 5.19971H2.7V3.39971H4.5V5.19971ZM12.6 11.4997H5.4V9.69971H12.6V11.4997ZM12.6 7.89971H10.8V6.09971H12.6V7.89971ZM12.6 5.19971H10.8V3.39971H12.6V5.19971ZM15.3 7.89971H13.5V6.09971H15.3V7.89971ZM15.3 5.19971H13.5V3.39971H15.3V5.19971Z"
                                   LeftButtonFill="#E2E2E2"
                                   RightButtonPathData="M4.18806 2.43361C3.75549 1.75496 2.75124 0.341355 1.78155 0.1469C0.498657 -0.110364 0.0859375 0.292465 0.0859375 0.292465L0.470116 0.932828C2.59647 0.947592 2.64492 1.36136 2.72854 2.07554C2.77335 2.45831 2.82827 2.92736 3.2186 3.46753C2.73439 4.38711 2.81941 5.53623 3.50098 6.38362L8.02688 12.0106C8.75465 12.9155 10.0974 13.0124 10.9476 12.2215L12.7847 10.5124C13.6458 9.71128 13.6331 8.34362 12.7572 7.55866L7.36173 2.72344C6.46617 1.92087 5.17157 1.83138 4.18806 2.43361ZM17.6768 12.3975L16.8928 11.2198C16.2053 10.1868 14.7528 10.0228 13.8521 10.8764L10.9412 13.6355C10.0667 14.4643 10.1182 15.8724 11.0507 16.6351L12.0323 17.438C12.7895 18.0573 13.8837 18.038 14.6186 17.3923L17.3321 15.0082C18.0845 14.3471 18.2319 13.2313 17.6768 12.3975Z"
                                   RightButtonFill="#E2E2E2"/>
         </Grid>
+
+
+        <TreeView Style="{StaticResource TreeViewStyle1}"
+                  Name="trvPersons"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Width="356"
+                  Height="458" 
+                  Background="LightBlue">
+            <TextBox Width="248"
+                     Height="34"
+                     Style="{StaticResource TextBoxStyle}">
+                Элемент TreeView
+            </TextBox>
+            <TreeViewItem Header="Базы данных">
+                <TreeViewItem Header="MySQL" />
+                <TreeViewItem Header="MongoDB" />
+                <TreeViewItem Header="Postgres">
+                    <TreeViewItem Header="MySQL">
+                        <TreeViewItem Header="MySQL" />
+                        <TreeViewItem Header="MongoDdasfaslf;ajfjas;fakjfl;akjfalkfjlafj;afjB" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="MongoDB" />
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Языки программирования">
+                <TreeViewItem Header="C-языки">
+                    <TreeViewItem Header="C#" />
+                    <TreeViewItem Header="C/C++" />
+                    <TreeViewItem Header="Java" />
+                </TreeViewItem>
+                <TreeViewItem Header="Basic">
+                    <TreeViewItem Header="Visual Basic" />
+                    <TreeViewItem Header="VB.Net" />
+                    <TreeViewItem Header="PureBasic" />
+                </TreeViewItem>
+            </TreeViewItem>
+
+        </TreeView>
+        
+        
+        
         <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
             <ToggleButton Width="104" Height="58" Margin="16,8,4,16" Style="{StaticResource TopToggleButtonStyle}" Content="Отображение"/>
             <ToggleButton Width="104" Height="58" Margin="16,8,4,16" Style="{StaticResource TopToggleButtonStyle}" Content="Фикс. Сенсора"/>

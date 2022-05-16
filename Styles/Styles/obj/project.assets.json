@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\WorkStyles\\Styles\\Styles\\Styles.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\123\\Styles\\Styles\\Styles.csproj",
       "projectName": "Styles",
-      "projectPath": "C:\\Users\\user\\Desktop\\WorkStyles\\Styles\\Styles\\Styles.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\123\\Styles\\Styles\\Styles.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\WorkStyles\\Styles\\Styles\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\123\\Styles\\Styles\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
