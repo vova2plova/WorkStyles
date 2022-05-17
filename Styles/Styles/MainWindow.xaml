@@ -84,6 +84,7 @@
                   Background="LightBlue">
             <TextBox Width="248"
                      Height="34"
+                     Margin="-20,0,0,0"
                      Style="{StaticResource TextBoxStyle}">
                 Элемент TreeView
             </TextBox>

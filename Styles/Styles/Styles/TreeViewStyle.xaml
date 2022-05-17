@@ -2,9 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <SolidColorBrush x:Key="ListBorder" Color="#828790"/>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="WrappingStyle">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
     
-    
-    
+
     <SolidColorBrush x:Key="TreeViewItem.TreeArrow.Static.Stroke" Color="#FF818181"/>
     <SolidColorBrush x:Key="TreeViewItem.TreeArrow.Static.Fill" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="TreeViewItem.TreeArrow.MouseOver.Stroke" Color="#FF27C7F7"/>
@@ -28,16 +32,13 @@
                               VerticalAlignment="Center"
                               HorizontalAlignment="Center"
                               Data="{StaticResource TreeArrow}"
-                              Fill="{StaticResource TreeViewItem.TreeArrow.Static.Fill}" 
-                              Stroke="{StaticResource TreeViewItem.TreeArrow.Static.Stroke}"/>
+                              Fill="#E2E2E2"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Data" TargetName="ExpandPath"
                                     Value="M1.5575 5.5575L5 2.1225L8.4425 5.5575L9.5 4.5L5 0L0.5 4.5L1.5575 5.5575Z">
                             </Setter>
-                            <Setter Property="Fill" TargetName="ExpandPath" Value="{StaticResource TreeViewItem.TreeArrow.Static.Checked.Fill}"/>
-                            <Setter Property="Stroke" TargetName="ExpandPath" Value="{StaticResource TreeViewItem.TreeArrow.Static.Checked.Stroke}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Stroke" TargetName="ExpandPath" Value="{StaticResource TreeViewItem.TreeArrow.MouseOver.Stroke}"/>
@@ -70,7 +71,6 @@
                 <ControlTemplate TargetType="{x:Type TreeView}">
                     <Border x:Name="Bd"
                             CornerRadius="8"
-                            Background="Red"
                             SnapsToDevicePixels="true">
                         <Border CornerRadius="8">
                         <Border.Clip>
@@ -89,8 +89,8 @@
                                       Focusable="false"
                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <ItemsPresenter/>
-                        </ScrollViewer>
+                                    <ItemsPresenter/>
+                            </ScrollViewer>
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -120,14 +120,15 @@
     <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}">
         <Setter Property="IsExpanded" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeViewItem}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition MinWidth="0"
-                                              Width="19"/>
-                            <ColumnDefinition Width="10000000*"/>
+                                              Width="32"/>
+                            <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -141,35 +142,40 @@
                                       VerticalAlignment="Center"/>
                         <Border x:Name="Bd"
                                 Grid.Column="1"
-                                Background="Red"
+                                BorderBrush="Red"
                                 SnapsToDevicePixels="true">
-                            <DockPanel>
                                 <TextBlock TextWrapping="Wrap"
                                            DockPanel.Dock="Left"
                                            VerticalAlignment="Center">
                                     <ContentPresenter x:Name="PART_Header"
                                                       ContentSource="Header"
-                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                        <ContentPresenter.Resources>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource WrappingStyle}"/>
+                                        </ContentPresenter.Resources>
+                                    </ContentPresenter>
                                 </TextBlock>
-                                <Path Data="M13.3004 11.3208H12.4874L12.1992 11.0429C13.2078 9.86964 13.815 8.34648 13.815 6.68954C13.815 2.99485 10.8201 0 7.12545 0C3.43077 0 0.435913 2.99485 0.435913 6.68954C0.435913 10.3842 3.43077 13.3791 7.12545 13.3791C8.7824 13.3791 10.3056 12.7719 11.4788 11.7633L11.7567 12.0515V12.8645L16.9025 18L18.4359 16.4666L13.3004 11.3208ZM7.12545 11.3208C4.56284 11.3208 2.49423 9.25214 2.49423 6.68954C2.49423 4.12693 4.56284 2.05832 7.12545 2.05832C9.68806 2.05832 11.7567 4.12693 11.7567 6.68954C11.7567 9.25214 9.68806 11.3208 7.12545 11.3208Z"
-                                      Fill="White"
-                                      DockPanel.Dock="Right"
-                                      VerticalAlignment="Center"
-                                      Margin="5,0,7,0"/>
-                                <Path Data="M9.80156 0.943385C9.63579 0.883374 9.45432 0.883374 9.28856 0.943385L1.49304 3.77838L9.54506 6.84587L17.5971 3.77838L9.80156 0.943385Z
-                                      M10.295 8.16543V18.6737L18.0515 15.8537C18.3478 15.7457 18.545 15.4637 18.545 15.1487V5.02292L10.295 8.16543Z
-                                      M0.545044 15.1487C0.545044 15.4637 0.742306 15.7457 1.03853 15.8537L8.79502 18.6737V8.16543L0.545044 5.02292V15.1487Z"
-                                      Stroke="White" 
-                                      DockPanel.Dock="Right"
-                                      VerticalAlignment="Center"
-                                      Margin="5,0,5,0"/>
-                                <Path Data="M8.27136 0.161011C4.52136 0.161011 1.31886 2.49351 0.0213623 5.78601C1.31886 9.07851 4.52136 11.411 8.27136 11.411C12.0214 11.411 15.2239 9.07851 16.5214 5.78601C15.2239 2.49351 12.0214 0.161011 8.27136 0.161011ZM8.27136 9.53601C6.20136 9.53601 4.52136 7.85601 4.52136 5.78601C4.52136 3.71601 6.20136 2.03601 8.27136 2.03601C10.3414 2.03601 12.0214 3.71601 12.0214 5.78601C12.0214 7.85601 10.3414 9.53601 8.27136 9.53601ZM8.27136 3.53601C7.02636 3.53601 6.02136 4.54101 6.02136 5.78601C6.02136 7.03101 7.02636 8.03601 8.27136 8.03601C9.51636 8.03601 10.5214 7.03101 10.5214 5.78601C10.5214 4.54101 9.51636 3.53601 8.27136 3.53601Z"
-                                      Fill="White"
-                                      VerticalAlignment="Center"
-                                      DockPanel.Dock="Right"/>
-                                
-                            </DockPanel>
                         </Border>
+                        <Path Data="M8.27136    0.161011C4.52136 0.161011 1.31886 2.49351 0.0213623 5.78601C1.31886 9.07851 4.52136 11.411 8.27136 11.411C12.0214 11.411 15.2239 9.07851 16.5214 5.78601C15.2239 2.49351 12.0214 0.161011 8.27136 0.161011ZM8.27136 9.53601C6.20136 9.53601 4.52136 7.85601 4.52136 5.78601C4.52136 3.71601 6.20136 2.03601 8.27136 2.03601C10.3414 2.03601 12.0214 3.71601 12.0214 5.78601C12.0214 7.85601 10.3414 9.53601 8.27136 9.53601ZM8.27136 3.53601C7.02636 3.53601 6.02136 4.54101 6.02136 5.78601C6.02136 7.03101 7.02636 8.03601 8.27136 8.03601C9.51636 8.03601 10.5214 7.03101 10.5214 5.78601C10.5214 4.54101 9.51636 3.53601 8.27136 3.53601Z"
+                              Fill="White"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Grid.Column="2"
+                              Margin="0,0,68.75,0"/>
+                        <Path Data="M9.80156 0.943385C9.63579 0.883374 9.45432 0.883374 9.28856 0.943385L1.49304 3.77838L9.54506 6.84587L17.5971 3.77838L9.80156 0.943385Z
+                              M10.295 8.16543V18.6737L18.0515 15.8537C18.3478 15.7457 18.545 15.4637 18.545 15.1487V5.02292L10.295 8.16543Z
+                              M0.545044 15.1487C0.545044 15.4637 0.742306 15.7457 1.03853 15.8537L8.79502 18.6737V8.16543L0.545044 5.02292V15.1487Z"
+                              Stroke="White" 
+                              VerticalAlignment="Center"
+                              Margin="0,0,40,0"
+                              HorizontalAlignment="Right"
+                              Grid.Column="2"/>
+                        <Path Data="M13.3004 11.3208H12.4874L12.1992 11.0429C13.2078 9.86964 13.815 8.34648 13.815 6.68954C13.815 2.99485 10.8201 0 7.12545 0C3.43077 0 0.435913 2.99485 0.435913 6.68954C0.435913 10.3842 3.43077 13.3791 7.12545 13.3791C8.7824 13.3791 10.3056 12.7719 11.4788 11.7633L11.7567 12.0515V12.8645L16.9025 18L18.4359 16.4666L13.3004 11.3208ZM7.12545 11.3208C4.56284 11.3208 2.49423 9.25214 2.49423 6.68954C2.49423 4.12693 4.56284 2.05832 7.12545 2.05832C9.68806 2.05832 11.7567 4.12693 11.7567 6.68954C11.7567 9.25214 9.68806 11.3208 7.12545 11.3208Z"
+                              Fill="White"
+                              VerticalAlignment="Center"
+                              Margin="0,0,12,0"
+                              HorizontalAlignment="Right"
+                              Grid.Column="2"/>
                         <ItemsPresenter x:Name="ItemsHost"
                                         Grid.Column="1"
                                         Grid.ColumnSpan="2"
