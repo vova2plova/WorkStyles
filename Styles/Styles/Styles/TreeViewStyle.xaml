@@ -7,19 +7,12 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
-    
-
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.Static.Stroke" Color="#FF818181"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.Static.Fill" Color="#FFFFFFFF"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.MouseOver.Stroke" Color="#FF27C7F7"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.MouseOver.Fill" Color="#FFCCEEFB"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.Static.Checked.Stroke" Color="#FF262626"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.Static.Checked.Fill" Color="#FF595959"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.MouseOver.Checked.Stroke" Color="#FF1CC4F7"/>
-    <SolidColorBrush x:Key="TreeViewItem.TreeArrow.MouseOver.Checked.Fill" Color="#FF82DFFB"/>
+   <!-- Arrow -->
 
     <PathGeometry x:Key="TreeArrow" Figures="M7.06 0.726562L4 3.7799L0.94 0.726562L0 1.66656L4 5.66656L8 1.66656L7.06 0.726562Z"/>
     
+   <!-- Expander -->
+   
     <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="16"/>
@@ -58,6 +51,7 @@
         </Setter>
     </Style>
 
+   <!-- TreeViewStyle -->
  
     <Style x:Key="TreeViewStyle1" TargetType="{x:Type TreeView}">
         <Setter Property="Background" Value="LightBlue"/>
@@ -116,6 +110,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+   
+   <!-- TreeViewItemStyle -->
 
     <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}">
         <Setter Property="IsExpanded" Value="True"/>
